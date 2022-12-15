@@ -1,2 +1,17 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= form_with(model: @post, url: posts_path) do |form| %>
+  <%= form.label :pet_name %><br>
+  <%= form.text_field :pet_name %><br>
+  <%= form.label :category %><br>
+  <%= form.text_field :category %><br>
+  <%= form.label :breed %><br>
+  <%= form.text_field :breed %><br>
+  <%= form.label :price %><br>
+  <%= form.number_field :price, step: :any %><br>
+  <%= form.label :description %><br>
+  <%= form.text_area :description %><br>
+  <%= form.check_box :is_meet_up %>
+  <%= form.label :is_meet_up, 'Meet up' %><br>
+  <%= form.label :location %><br>
+  <%= form.text_field :location %><br>
+  <%= form.submit 'Post pet' %>
+<% end %>

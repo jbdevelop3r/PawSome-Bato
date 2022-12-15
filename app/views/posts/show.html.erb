@@ -1,2 +1,5 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1><%= @post.pet_name %></h1>
+<h2><%= @post.category %>, <%= @post.breed %></h2>
+<p><%= @post.price %></p>
+<p><%= @post.description %></p>
+<p><%= @post.location %>, <%= @post.is_meet_up ? 'Meet up' : 'Pick up' %></p>
