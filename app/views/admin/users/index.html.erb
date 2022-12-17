@@ -13,6 +13,7 @@
       <% @users.each do |user| %>
         <tr>
           <td class="mb-1 d-flex"><%= link_to user.email, admin_user_path(user) %></td>
+          <td class="mb-1 d-flex"><%= link_to user.email, admin_user_path(user) %></td>
         </tr>
       <% end %>
     </tbody>
