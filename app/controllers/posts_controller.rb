@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_if_admin
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -42,11 +43,17 @@ class PostsController < ApplicationController
   end
 
   private
-  def set_post
-    @post = current_user.posts.find(params[:id])
-  end
+    def set_post
+      @post = current_user.posts.find(params[:id])
+    end
 
-  def post_params
-    params.require(:post).permit(:pet_name, :category, :breed, :price, :description, :is_meet_up, :location)
-  end 
+    def post_params
+      params.require(:post).permit(:pet_name, :category, :breed, :price, :description, :is_meet_up, :location)
+    end
+
+    def check_if_admin
+      if current_user.admin?
+        redirect_to '/admin/users'
+      end
+    end
 end
