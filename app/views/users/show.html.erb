@@ -1,0 +1,13 @@
+<h1>Showing user <%= @user.email %></h1>
+
+<h3>showing all posts of user</h3>
+
+<ul>
+    <% @posts.each do |post| %>
+        <li><%= post.pet_name %></li>
+        <li><%= post.breed %></li>
+        <li><%= post.price %></li>
+        <li><%= post.category %></li>
+        <li><%= post.description %></li>
+    <% end %>
+</ul>
