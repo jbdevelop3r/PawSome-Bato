@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
+
+
   resources :posts
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :reviews
+  end
 end

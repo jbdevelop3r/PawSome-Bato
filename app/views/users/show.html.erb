@@ -11,3 +11,35 @@
         <li><%= post.description %></li>
     <% end %>
 </ul>
+
+<h3>REVIEWS</h3>
+<% @user.reviews.each do |review| %>
+    <p>
+    <strong>Reviewer:</strong>
+    <%= review.reviewer %>
+  </p>
+  <p>
+    <strong>Rating:</strong>
+    <%= review.rating %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= review.comment %>
+  </p>
+<% end %>
+<h2>Add a review:</h2>
+<%= form_with model: [ @user, @user.reviews.build ] do |form| %>
+  <p>
+    <%= form.label :rating %><br>
+    <%= form.text_field :rating %>
+  </p>
+
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
