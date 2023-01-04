@@ -6,9 +6,35 @@
 .map {
     width: 40%;
     min-height: 450px;
-  }
+    display: flex;
+    
 
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+#maps {
+    width: 40%;
+    min-height: 450px; 
+}
 
 .field-coordinates {
     display: none;
+}
+
+.search-location-bar {
+    width: 400px;
+    height: 30px;
+}
+
+#search-bar {
+    color: red;
+}
+
+.try {
+    width: 200px;
+    color: red;
 }

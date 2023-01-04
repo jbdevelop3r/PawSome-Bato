@@ -3,13 +3,15 @@
   action: "google-maps-callback@window->maps#initializeMap"
 } do |form| %>
 
+<div class="map-container">
+
 <div class="field">
-  <%= form.search_field :search, name: nil, class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
+  <%= form.search_field :search, name: nil, class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" }, class: "search-location-bar", id: "search-bar" %>
 </div>
 
 <div class="field-coordinates">
   <%= form.label :latitude %>
-  <%= form.text_field :latitude, class: 'form-control', data: { target: "maps.latitude" } %>
+  <%= form.text_field :latitude, class: 'form-control', data: { target: "maps.latitude" }, class: "field-coordinates", id: "coordinates" %>
 </div>
 
 <div class="field-coordinates">
@@ -17,9 +19,7 @@
   <%= form.text_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
 </div>
 
-<%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
+<%= content_tag :div, nil, data: { target: "maps.map" }, class: "map"%>
 
-<div class="actions">
-  <%= form.submit class: 'btn btn-primary' %>
+<% end %> 
 </div>
-<% end %>
