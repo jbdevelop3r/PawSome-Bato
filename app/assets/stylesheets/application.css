@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ .container {
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+ }
+
+ .post {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+ }
