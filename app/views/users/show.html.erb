@@ -12,6 +12,15 @@
     <% end %>
 </ul>
 
+<h1>Users who can review the reviews [beta]</h1>
+<ul>
+  <% @connections.each do |connection| %>
+    <li><%= User.find(connection.customer_id).email %></li>
+  <% end %>
+</ul>
+
+  
+
 <h3>REVIEWS</h3>
 <% @user.reviews.each do |review| %>
     <p>
