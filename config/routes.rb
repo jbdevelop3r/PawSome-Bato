@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
-
+  namespace :admin do
+    resources :users
+  end
 
   resources :posts
   resources :users, only: [:index, :show] do
