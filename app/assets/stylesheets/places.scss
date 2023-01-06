@@ -9,10 +9,11 @@
 
 .map {
     flex: 1;
-    width: 100%;
+    width: 80%;
     display: flex;
+    margin-left: 10%;
     flex-direction: row;
-    height: 100%; // add this
+    height: 90%; // add this
 }
 
 
@@ -38,5 +39,17 @@
 
 .search-location-bar::placeholder {
     text-align: center;
+}
+
+.back-home {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+.back-home-span:hover {
+    background-color: rgb(81, 74, 74);
 }
 
