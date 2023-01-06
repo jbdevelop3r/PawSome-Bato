@@ -1,6 +1,6 @@
 <div class="">
   <section class="reg-user-form">
-  <div class="register-icon text-light p-2" style="background-color: #00ABB3; border-radius: 10px;"> 
+  <div class="register-icon text-light p-2" style="background-color: #282A3A; border-radius: 10px;"> 
     <i class="bi bi-person-vcard"></i>
     <p class="reg-user-tag"> Register </p> 
   </div>
@@ -30,12 +30,9 @@
     <%= f.submit "Sign up", class: "btn btn-primary w-50" %> 
   </div>
 <% end %>
-  <div class="d-flex justify-content-around mt-5 p-2" style="background-color: #EAEAEA; border-radius: 10px;">
+  <div class="d-flex justify-content-center mt-4 p-2" style="background-color: #EAEAEA; border-radius: 10px;">
       <%- if controller_name != 'sessions' %>
         <%= link_to "Log in", new_session_path(resource_name), class: "login-link" %><br />
-      <% end %>
-      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "Forgot your password?", new_password_path(resource_name), class: "forgot-pasword-link"  %><br />
       <% end %>
   </div>
 </section> 
