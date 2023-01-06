@@ -15,5 +15,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :posts
+
+
+  resources :posts
+  resources :users, only: [:index, :show] do
+    resources :reviews
+  end
 end
