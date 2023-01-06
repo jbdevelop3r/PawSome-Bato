@@ -5,3 +5,14 @@
 <p><%= @post.price %></p>
 <p><%= @post.description %></p>
 <p><%= @post.location %>, <%= @post.is_meet_up ? 'Meet up' : 'Pick up' %></p>
+
+<% if current_user.id == @post.user_id %>
+    <%= form_with model: @post, method: :patch do |form| %>
+        <%= form.hidden_field :availability, value: 'sold' %>
+        <%= form.submit "Sold" %>
+    <% end %>
+    <%= form_with model: @post, method: :patch do |form| %>
+        <%= form.hidden_field :availability, value: 'adopted' %>
+        <%= form.submit "Adopted" %>
+    <% end %>
+<% end %>
