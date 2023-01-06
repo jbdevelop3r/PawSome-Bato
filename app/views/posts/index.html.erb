@@ -6,6 +6,9 @@
     <% @posts.each do |post| %>
         <div class="post">
             <%= link_to post do %>
+                <div class="ctr-thumb">
+                    <%= image_tag post.thumbnail_url, class: "thumb" %>
+                </div>
                 <h3><%= post.pet_name %></h3>
                 <h4><%= post.category %>, <%= post.breed %></h4>
                 <p><%= number_to_currency(post.price) %></p>

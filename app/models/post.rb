@@ -7,4 +7,6 @@ class Post < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
   validates :location, presence: true
+
+  mount_uploader :thumbnail, ThumbnailUploader
 end
