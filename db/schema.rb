@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2023_01_04_124908) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "thumbnail"
+    t.string "availability", default: "available"
     t.boolean "is_sold"
     t.decimal "latitude"
     t.index ["user_id"], name: "index_posts_on_user_id"

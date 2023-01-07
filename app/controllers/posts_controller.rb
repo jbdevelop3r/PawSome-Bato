@@ -3,11 +3,10 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = current_user.posts
+    @posts = Post.all.where(availability: "available").order('created_at DESC')
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
   end
 
   def new
@@ -16,11 +15,11 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save(post_params)
-      # Handle successful update
-      redirect_to @post, notice: 'Post created.'
+
+    if @post.save
+      redirect_to post_url(@post), notice: 'Post created.'
     else
-      # Handle unsuccessful update
+      render :new
     end
   end
 
@@ -43,10 +42,11 @@ class PostsController < ApplicationController
 
   private
   def set_post
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:pet_name, :category, :breed, :price, :description, :is_meet_up, :location)
-  end 
+    params.require(:post).permit(:pet_name, :category, :breed, :price, :description, :is_meet_up, :location, :thumbnail, :availability)
+  end
+  
 end
