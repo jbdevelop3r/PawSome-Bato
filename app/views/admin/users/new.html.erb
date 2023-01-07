@@ -1,0 +1,18 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="d-flex justify-content-center mt-3">
+    <div class="d-flex justify-content-center align-items-center form">
+        <div>
+            <h1 class="form-header">Add New User</h1>
+            <%= render 'form', user: @user %>
+        </div>
+    </div>
+</div>
