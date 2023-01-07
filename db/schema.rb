@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_02_051337) do
+ActiveRecord::Schema.define(version: 2023_01_06_121340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "connections", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_connections_on_user_id"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -35,6 +43,9 @@ ActiveRecord::Schema.define(version: 2023_01_02_051337) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "latitude"
+    t.string "thumbnail"
+    t.string "availability", default: "available"
+    t.boolean "is_sold"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -46,21 +57,6 @@ ActiveRecord::Schema.define(version: 2023_01_02_051337) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "reviewer"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.string "pet_name"
-    t.string "category"
-    t.string "breed"
-    t.float "price"
-    t.text "description"
-    t.boolean "is_meet_up"
-    t.text "location"
-    t.integer "seller_id"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,7 +72,7 @@ ActiveRecord::Schema.define(version: 2023_01_02_051337) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "connections", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "reviews", "users"
-  add_foreign_key "transactions", "users"
 end

@@ -5,7 +5,7 @@
 
 <div class="map-container">
 
-<div> <span class="back-home-span"> <%= link_to "Back to homepage", root_path, class: "back-home" %> </span> </div>
+<div> <span class="back-home-span"> <%= link_to "Back to homepage", authenticated_root_path, class: "back-home" %> </span> </div>
 
 <div class="field">
   <%= form.search_field :search, name: nil, class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" }, class: "search-location-bar", id: "search-bar" %>
