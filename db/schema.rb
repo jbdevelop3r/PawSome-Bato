@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2023_01_04_124908) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "thumbnail"
+    t.string "availability", default: "available"
     t.boolean "is_sold"
     t.decimal "latitude"
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -68,7 +70,7 @@ ActiveRecord::Schema.define(version: 2023_01_04_124908) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin", default: false
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

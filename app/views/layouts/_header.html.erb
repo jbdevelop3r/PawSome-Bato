@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar justify-content-between">
+  <div>
+    <div class="navbar-content-container" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row gap-2 align-items-center">
+        <%# For showing admin / user upon login %>
+        <% if current_user && current_user.admin %>
+            <li class="nav-item">
+                <span class="greet-user">Welcome, Admin <%= current_user.email.split("@").first.capitalize %></span>
+            </li>
+        <% elsif current_user && !current_user.admin %>
+            <li class="nav-item">
+                <span class="greet-user">Welcome, User <%= current_user.email.split("@").first.capitalize %></span>
+            </li>
+        <% end %>
+        <% if user_signed_in? %>
+            <li class="nav-item">
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-link logout-btn" %>
+            </li>
+        <% else %>
+            <li class="nav-item">
+                <%= link_to 'Log in', new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Sign up', new_user_registration_path, class: "nav-link" %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
