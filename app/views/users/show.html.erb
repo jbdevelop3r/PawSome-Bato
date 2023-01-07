@@ -12,43 +12,43 @@
     <% end %>
 </ul>
 
-<h1>Users who can review the reviews [beta]</h1>
+<h3>REVIEWS</h3>
+    <% @user.reviews.each do |review| %>
+        <p>
+        <strong>Reviewer:</strong>
+        <%= review.reviewer %>
+      </p>
+      <p>
+        <strong>Rating:</strong>
+        <%= review.rating %>
+      </p>
+      <p>
+        <strong>Comment:</strong>
+        <%= review.comment %>
+      </p>
+    <% end %>
 <ul>
   <% @connections.each do |connection| %>
-    <li><%= User.find(connection.customer_id).email %></li>
+    <% if connection.customer_id == current_user.id  %>
+      
+      <h2>Add a review:</h2>
+      <%= form_with model: [ @user, @user.reviews.build ] do |form| %>
+        <p>
+          <%= form.label :rating %><br>
+          <%= form.text_field :rating %>
+        </p>
+
+        <p>
+          <%= form.label :comment %><br>
+          <%= form.text_area :comment %>
+        </p>
+        <p>
+          <%= form.submit %>
+        </p>
+      <% end %>
+
+    <% end %>
   <% end %>
 </ul>
 
   
-
-<h3>REVIEWS</h3>
-<% @user.reviews.each do |review| %>
-    <p>
-    <strong>Reviewer:</strong>
-    <%= review.reviewer %>
-  </p>
-  <p>
-    <strong>Rating:</strong>
-    <%= review.rating %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
-    <%= review.comment %>
-  </p>
-<% end %>
-<h2>Add a review:</h2>
-<%= form_with model: [ @user, @user.reviews.build ] do |form| %>
-  <p>
-    <%= form.label :rating %><br>
-    <%= form.text_field :rating %>
-  </p>
-
-  <p>
-    <%= form.label :comment %><br>
-    <%= form.text_area :comment %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
