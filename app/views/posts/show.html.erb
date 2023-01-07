@@ -1,18 +1,25 @@
 <%= link_to "Homepage", posts_path %>
 
-<h1><%= @post.pet_name %></h1>
-<h2><%= @post.category %>, <%= @post.breed %></h2>
-<p><%= @post.price %></p>
-<p><%= @post.description %></p>
-<p><%= @post.location %>, <%= @post.is_meet_up ? 'Meet up' : 'Pick up' %></p>
+<div class="container justify-content-center">
+    <div class="card" style="width: 30rem;">
+        <%= image_tag @post.thumbnail_url, class: "card-img-top" %>
+        <div class="card-body">
+            <div class="d-flex align-items-center gap-2">
+                <h1 class="card-title"><%= @post.pet_name %></h1>
+                <% if current_user.id == @post.user_id %>
+                    <%= link_to "Edit Post", edit_post_url %>
+                <% end %>
+            </div>
+            <p class="card-text"><strong>Category:</strong> <%= @post.category %></p>
+            <p class="card-text"><strong>Breed:</strong> <%= @post.breed %></p>
+            <p class="card-text"><strong>Price:</strong> <%= number_to_currency(@post.price, unit: "₱", separator: ".", delimiter: ",") %></p>
+            <p class="card-text"><strong>Description:</strong></p>
+            <p class="card-text"><%= @post.description %></p>
+            <p class="card-text"><strong>Location:</strong></p>
+            <p class="card-text"><%= @post.location %></p>
+            <p class="card-text"><strong>Pick up/Meet up:</strong> <%= @post.is_meet_up ? 'Meet up' : 'Pick up' %></p>
+        </div>
 
-<% if current_user.id == @post.user_id %>
-    <%= form_with model: @post, method: :patch do |form| %>
-        <%= form.hidden_field :availability, value: 'sold' %>
-        <%= form.submit "Sold" %>
-    <% end %>
-    <%= form_with model: @post, method: :patch do |form| %>
-        <%= form.hidden_field :availability, value: 'adopted' %>
-        <%= form.submit "Adopted" %>
-    <% end %>
-<% end %>
+        
+    </div>
+</div>
