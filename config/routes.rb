@@ -11,10 +11,13 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :users
+  end
+  
   resources :places
   resources :posts
   resources :users, only: [:index, :show] do
     resources :reviews
   end
-  
 end

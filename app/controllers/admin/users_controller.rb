@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
-    before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
   def index
@@ -18,12 +19,12 @@ class Admin::UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-    @user.skip_confirmation!
+    # @user.skip_confirmation!
 
 
     respond_to do |format|
       if @user.save
-        AdminConfirmationMailer.signed_up(@user).deliver_now
+        # AdminConfirmationMailer.signed_up(@user).deliver_now
         format.html { redirect_to admin_user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -69,5 +70,9 @@ class Admin::UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:email, :password)
+    end
+
+    def check_if_admin
+      redirect_to authenticated_root_path unless current_user.admin?
     end
 end
