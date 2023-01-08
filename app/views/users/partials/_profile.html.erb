@@ -1,0 +1,9 @@
+<div class="p-3 position-relative">
+    <%= image_tag 'default_profile', class: 'img-thumbnail rounded-circle', width:"220" %>
+    <button class="position-absolute bottom-0 end-0 translate-middle rounded-circle btn-light btn" style="border: grey 1px solid;" >
+        <i class="fa-solid fa-camera"></i>
+    </button>
+</div>
+<div class="container-fluid">
+    <h4><%= @user.email %></h4>
+</div>

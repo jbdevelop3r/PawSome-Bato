@@ -1,62 +1,20 @@
-<div class='container'>
-  <div class="col">
-    <div class="col">
-      <h1>Showings user <%= @user.email %></h1>
+<div class='container-xl mb-2'>
+  <div class="row">
+    <div class="col-4  text-center">
+      <div class="card d-flex justify-content-center align-items-center">
+        <%= render 'users/partials/profile' %>
+      </div>
     </div>
-    <div class="col">
+    <div class="col-8">
+      <div class="row mb-3">
+        <div class="card">
+        <%= render 'users/partials/posts' %>
+        </div>
+      </div>
       <div class="row">
-        <div class="col"><h3>showing all posts of user</h3>
-
-<ul>
-    <% @posts.each do |post| %>
-        <li><%= post.pet_name %></li>
-        <li><%= post.breed %></li>
-        <li><%= post.price %></li>
-        <li><%= post.category %></li>
-        <li><%= post.description %></li>
-    <% end %>
-</ul>
-</div>
-        <div class="col">
-        <h3>REVIEWS</h3>
-    <% @user.reviews.each do |review| %>
-        <p>
-        <strong>Reviewer:</strong>
-        <%= review.reviewer %>
-      </p>
-      <p>
-        <strong>Rating:</strong>
-        <%= review.rating %>
-      </p>
-      <p>
-        <strong>Comment:</strong>
-        <%= review.comment %>
-      </p>
-    <% end %>
-<ul>
-  <% @connections.each do |connection| %>
-    <% if connection.customer_id == current_user.id  %>
-      
-      <h2>Add a review:</h2>
-      <%= form_with model: [ @user, @user.reviews.build ] do |form| %>
-        <p>
-          <%= form.label :rating %><br>
-          <%= form.text_field :rating %>
-        </p>
-
-        <p>
-          <%= form.label :comment %><br>
-          <%= form.text_area :comment %>
-        </p>
-        <p>
-          <%= form.submit %>
-        </p>
-      <% end %>
-
-    <% end %>
-  <% end %>
-</ul>
-</div>
+        <div class="card">
+          <%= render 'users/partials/reviews' %>
+        </div>
       </div>
     </div>
   </div>

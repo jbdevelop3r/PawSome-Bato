@@ -1,0 +1,20 @@
+<div class="container-fluid p-3">
+    <div class="row">
+        <h1>Posts</h1>
+    </div>
+    <div class="row">
+        <% if @posts.size > 0 %>
+        <% @posts.each do |post| %>
+            <div class="card">
+                <%= post.pet_name %>
+                <%= post.breed %>
+                <%= post.price %>
+                <%= post.category %>
+                <%= post.description %>
+            </div>
+        <% end %>
+        <% else %>
+            <h3 class="card py-2 d-flex justify-content-center align-items-center" style="height: 250px;">No Posts Yet</h3>
+        <% end %>
+    </div>
+</div>

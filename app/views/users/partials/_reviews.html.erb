@@ -1,0 +1,42 @@
+<div class="container-fluid p-3">
+    <div class="row">
+        <h1>REVIEWS</h1>
+    </div>
+    <div class="row">
+        <% @user.reviews.each do |review| %>
+            <div class="row border-bottom my-3">
+                <div class="col-1"><%= image_tag 'default_profile', class: 'img-thumbnail rounded-circle', width:"50" %></div>
+                    <div class="col-11">
+                    <div class="row"><%= review.reviewer %></div>
+                    <div class="row"><%= review.rating %> &#11088; rating</div>
+                    <div class="row my-2"><%= review.comment %></div>
+                </div>
+            </div>
+        <% end %>
+        
+
+    <div class="col card">
+     <% @connections.each do |connection| %>
+        <% if connection.customer_id == current_user.id  %>
+            <h2>Add Review:</h2>
+        <%= form_with model: [ @user, @user.reviews.build ] do |form| %>
+            <p>
+                <%= form.label :rating, class: "form-label h6" %>
+                <%= form.select :rating, [["1 star", 1], ["2 stars", 2], ["3 stars", 3],["4 stars", 4], ["5 stars", 5]], selected: 1, class: 'form-select form-control' %>
+            </p>
+
+            <p>
+                <%= form.label :comment, class: 'form-label h6' %><br>
+                <%= form.text_area :comment, class: 'form-control' %>
+            </p>
+            <p>
+            <%= form.submit "Submit Review", class: "btn btn-primary" %>
+            </p>
+        <% end %>
+
+        <% end %>
+    <% end %>   
+    </div>   
+   
+    </div>
+</div>
