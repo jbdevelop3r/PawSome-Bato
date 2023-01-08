@@ -1,7 +1,11 @@
 <div class='container'>
-  <h1>Showing user <%= @user.email %></h1>
-
-<h3>showing all posts of user</h3>
+  <div class="col">
+    <div class="col">
+      <h1>Showings user <%= @user.email %></h1>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col"><h3>showing all posts of user</h3>
 
 <ul>
     <% @posts.each do |post| %>
@@ -12,8 +16,9 @@
         <li><%= post.description %></li>
     <% end %>
 </ul>
-
-<h3>REVIEWS</h3>
+</div>
+        <div class="col">
+        <h3>REVIEWS</h3>
     <% @user.reviews.each do |review| %>
         <p>
         <strong>Reviewer:</strong>
@@ -52,3 +57,9 @@
   <% end %>
 </ul>
 </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
