@@ -5,12 +5,15 @@
     <div class="row">
         <% if @posts.size > 0 %>
         <% @posts.each do |post| %>
-            <div class="card">
-                <%= post.pet_name %>
-                <%= post.breed %>
-                <%= post.price %>
-                <%= post.category %>
-                <%= post.description %>
+            <div class="card mx-2">
+                <div class="card-header ">
+                    <%= post.pet_name %>
+                </div>
+                 <div class="card-body">
+                    <h5 class="card-title"><%= post.category %> / <%= post.breed %> <small class="text-muted">$ <%= post.price %></small></h5>
+                    
+                    <p class="card-text"><%= post.description %></p>
+                </div>
             </div>
         <% end %>
         <% else %>
