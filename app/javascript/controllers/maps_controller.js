@@ -3,6 +3,7 @@ import { Controller} from "stimulus"
 
 export default class extends Controller {
   static targets = ["field", "map", "latitude", "longitude"]
+  static classes = [ "loading" ]
 
   connect() {
     if (typeof (google) != "undefined"){
@@ -14,7 +15,6 @@ export default class extends Controller {
     this.map()
     this.marker()
     this.autocomplete()
-    console.log('init')
   }
 
   map() {
@@ -77,5 +77,6 @@ export default class extends Controller {
 
   preventSubmit(e) {
     if (e.key == "Enter") { e.preventDefault() }
+    this.fieldTarget.classList.remove('field')
   }
 }

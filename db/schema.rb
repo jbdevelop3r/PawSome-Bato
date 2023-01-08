@@ -10,13 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2023_01_04_124908) do
-
+ActiveRecord::Schema.define(version: 2023_01_06_121340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "connections", force: :cascade do |t|
     t.bigint "customer_id"
@@ -24,6 +21,7 @@ ActiveRecord::Schema.define(version: 2023_01_04_124908) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_connections_on_user_id"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -31,7 +29,6 @@ ActiveRecord::Schema.define(version: 2023_01_04_124908) do
     t.decimal "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-
   end
 
   create_table "posts", force: :cascade do |t|
@@ -45,10 +42,10 @@ ActiveRecord::Schema.define(version: 2023_01_04_124908) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "latitude"
     t.string "thumbnail"
     t.string "availability", default: "available"
     t.boolean "is_sold"
-    t.decimal "latitude"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -70,7 +67,7 @@ ActiveRecord::Schema.define(version: 2023_01_04_124908) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
