@@ -61,13 +61,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
-
-# For uploading photo and saving it to database
-gem 'carrierwave'
-
-
-=======
-
 # Shawn added for testing email delivery
 gem 'letter_opener', group: :development 
 gem 'mail_interceptor', group: [ :development, :staging ]
