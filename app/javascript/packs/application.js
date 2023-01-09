@@ -14,9 +14,11 @@ ActiveStorage.start()
 
 import "controllers"
 
-window.dispatchMapsEvent = function (...args) {
-    const event = document.createEvent("Events")
-    event.initEvent("google-maps-callback", true, true)
-    event.args = args
-    window.dispatchEvent(event)
-  }
+// Removed code below due to js experiencing error with this code
+
+// window.dispatchMapsEvent = function (...args) {
+//     const event = document.createEvent("Events")
+//     event.initEvent("google-maps-callback", true, true)
+//     event.args = args
+//     window.dispatchEvent(event)
+//   }
