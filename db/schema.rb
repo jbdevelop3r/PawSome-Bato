@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_06_121340) do
+
+ActiveRecord::Schema.define(version: 2023_01_08_234929) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,15 +39,17 @@ ActiveRecord::Schema.define(version: 2023_01_06_121340) do
     t.string "breed"
     t.float "price"
     t.text "description"
-    t.boolean "is_meet_up", default: false
     t.text "location"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.decimal "latitude"
+    t.string "images"
     t.string "thumbnail"
     t.string "availability", default: "available"
     t.boolean "is_sold"
+    t.string "pick_up"
+    t.string "advertisement"
+
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

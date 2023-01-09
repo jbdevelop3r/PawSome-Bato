@@ -1,2 +1,39 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit listing</h1>
+
+<div class="card p-3" style="width: 30rem;">
+  <%= form_with(model: @post, url: post_path(@post), method: :patch) do |form| %>
+    <div class="mb-3">
+      <%= form.label :pet_name, class: "form-label" %>
+      <%= form.text_field :pet_name, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+    <%= form.label :category, class: "form-label" %>
+    <%= form.text_field :category, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :breed, class: "form-label" %>
+      <%= form.text_field :breed, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :price, class: "form-label" %>
+      <%= form.number_field :price, step: :any, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+    <div class="d-flex gap-2 mb-3">
+      <%= form.check_box :is_meet_up %>
+      <%= form.label :is_meet_up, 'Meet up'%>
+    </div>
+    <div class="mb-3">
+      <%= form.label :location, class: "form-label" %>
+      <%= form.text_field :location, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label "Picture of your pet", class: "form-label" %>
+      <%= form.file_field :thumbnail, class:"form-control"%>
+    </div>
+    <%= form.submit 'Update', class: "btn btn-primary" %>
+  <% end %>
+</div>
