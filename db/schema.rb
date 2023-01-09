@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2023_01_08_234929) do
     t.boolean "is_sold"
     t.string "thumbnail"
     t.string "availability", default: "available"
-    t.boolean "is_sold"
     t.string "pick_up"
     t.string "advertisement"
     t.index ["user_id"], name: "index_posts_on_user_id"
