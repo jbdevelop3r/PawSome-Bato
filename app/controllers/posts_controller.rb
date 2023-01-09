@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:pet_name, :category, :breed, :price, :description, :is_meet_up, :location, :thumbnail, :availability)
+    params.require(:post).permit(:pet_name, :category, :breed, :price, :description, :pick_up, :location, :thumbnail, :availability, :advertisement)
   end
   
 end
