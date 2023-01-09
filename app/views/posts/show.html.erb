@@ -2,7 +2,9 @@
 
 <div class="container justify-content-center">
     <div class="card" style="width: 30rem;">
-        <%= image_tag @post.thumbnail_url, class: "card-img-top" %>
+        <div  class="card-img-top mb-5 mt-3" >
+                <%= image_tag @post.thumbnail_url, class: "pet-thumbnail"%>
+        </div>
         <div class="card-body">
             <div class="d-flex align-items-center gap-2">
                 <h1 class="card-title"><%= @post.pet_name %></h1>

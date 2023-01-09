@@ -57,4 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
+# For uploading photo and saving it to database
 gem 'carrierwave'
+# Photo manipulation such as resizing, type convertion etc.
+gem 'mini_magick'
