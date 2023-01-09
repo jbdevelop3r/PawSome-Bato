@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <div class="d-flex align-items-center gap-2">
-                <h1 class="card-title"><%= @post.pet_name %></h1>
+                <h1 class="card-title"><%= @post.pet_name.titleize  %></h1>
                 <% if current_user.id == @post.user_id %>
                     <%= link_to "Edit Post", edit_post_url %>
                 <% end %>

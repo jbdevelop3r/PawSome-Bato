@@ -10,7 +10,7 @@
                 <%= image_tag post.thumbnail_url, class: "pet-thumbnail"%>
             </div>
             <div class="card-body">
-                <h3 class="card-title"><%= post.pet_name %></h3>
+                <h3 class="card-title"><%= post.pet_name.titleize  %></h3>
                 <p class="card-text"><%= post.category %>, <%= post.breed %></p>
                 <p class="card-text"><%= post.location %></p>
                 <%= link_to "Details", post_path(post), class: "btn btn-secondary btn-sm" %>
