@@ -13,8 +13,8 @@
                 <% end %>
             </div>
             <h5 class="card-text"><strong><%= @post.advertisement %></strong></h5>
-            <p class="card-text"><strong>Category:</strong> <%= @post.category %></p>
-            <p class="card-text"><strong>Breed:</strong> <%= @post.breed %></p>
+            <p class="card-text"><strong>Category:</strong> <%= @post.category.titleize %></p>
+            <p class="card-text"><strong>Breed:</strong> <%= @post.breed.titleize %></p>
             <p class="card-text"><strong>Price:</strong> <%= number_to_currency(@post.price, unit: "₱", separator: ".", delimiter: ",") %></p>
             <p class="card-text"><strong>Description:</strong></p>
             <p class="card-text"><%= @post.description %></p>
@@ -22,7 +22,5 @@
             <p class="card-text"><%= @post.location %></p>
             <p class="card-text"><strong>Pick up/Meet up:</strong> <%= @post.pick_up == 'meet_up' ? 'Meet up' : 'Pick up' %></p>
         </div>
-
-        
     </div>
 </div>
