@@ -1,0 +1,23 @@
+<div class="container-fluid p-3">
+    <div class="row">
+        <h1>Posts</h1>
+    </div>
+    <div class="row">
+        <% if @posts.size > 0 %>
+        <% @posts.each do |post| %>
+            <div class="card mx-2">
+                <div class="card-header ">
+                    <%= post.pet_name %>
+                </div>
+                 <div class="card-body">
+                    <h5 class="card-title"><%= post.category %> / <%= post.breed %> <small class="text-muted">$ <%= post.price %></small></h5>
+                    
+                    <p class="card-text"><%= post.description %></p>
+                </div>
+            </div>
+        <% end %>
+        <% else %>
+            <h3 class="card py-2 d-flex justify-content-center align-items-center" style="height: 250px;">No Posts Yet</h3>
+        <% end %>
+    </div>
+</div>
