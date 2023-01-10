@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   end
   
   resources :places
-  resources :posts
+  resources :posts do
+  	resources :comments
+  end
   resources :users, only: [:index, :show] do
     resources :reviews
   end
