@@ -50,9 +50,10 @@ ActiveRecord::Schema.define(version: 2023_01_10_012932) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_sold"
+    t.string "images"
     t.string "thumbnail"
     t.string "availability", default: "available"
+    t.boolean "is_sold"
     t.string "pick_up"
     t.string "advertisement"
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 2023_01_10_012932) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
