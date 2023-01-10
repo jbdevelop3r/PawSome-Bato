@@ -25,9 +25,10 @@
         </div>
 
         <div class="card post-card" style="width: 30rem;">
-            <%= render 'comments/form' %>
             <h5><strong><%= @post.comments.count %></strong> Comments:</h5>
             <%= render @post.comments %>
+
+            <%= render 'comments/form' %>
         </div>
 </div>
 <% console %>
