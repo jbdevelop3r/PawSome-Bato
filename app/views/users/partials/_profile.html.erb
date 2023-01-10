@@ -1,0 +1,32 @@
+<div class="p-3 position-relative">
+    <%= image_tag @user.avatar_url || 'default_profile', class: 'img-thumbnail rounded-circle', style: 'width: 220px; height: 220px;'  %>        
+    <% if current_user.id.to_i == params[:id].to_i%>
+        <button type="button" class="position-absolute bottom-0 end-0 translate-middle rounded-circle btn-light btn" style="border: grey 1px solid;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <i class="fa-solid fa-camera"></i> 
+        </button>
+    <% end %>
+</div>
+<div class="container-fluid">
+    <h4><%= @user.email %></h4>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Upload New Profile Pic</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <%= form_with model: @user do |form| %>
+            <div class="modal-body">
+                <%= form.file_field :avatar, class:"form-control"%>
+            </div>
+            <div class="modal-footer">
+                <%= form.submit 'submit', class: 'btn btn-primary' %>
+            </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>
