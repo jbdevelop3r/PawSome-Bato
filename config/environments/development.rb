@@ -38,11 +38,26 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { 
+    :host => 'localhost', 
+    :port => 3000
+  }
 
   # Shawn added so that letter opener gem will intercept all email
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+
+  # SendGrid API for mailer
+  # If below lines doesn't work replace "ActionMailer::Basesmtp_settings =" with "config.action_mailer.smtp_settings ="
+  # config.action_mailer.smtp_settings = {
+  #   :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+  #   :password => Rails.application.credentials.sendgrid_api_key, # This is the secret sendgrid API key which was issued during API key creation
+  #   :domain => 'shawarmabro13@gmail.com',
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

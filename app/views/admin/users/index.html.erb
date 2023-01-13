@@ -6,15 +6,20 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">Users</th>
+        <th scope="col">Posts</th>
+        <th scope="col">Reports</th>
       </tr>
     </thead>
 
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td class="mb-1 d-flex"><%= link_to user.email, admin_user_path(user) %></td>
+          <td><%= link_to user.email, admin_user_path(user) %></td>
+          <td><%= link_to user.posts.size, admin_user_posts_path(user) %></td>
+          <td><%= user.posts.where(reported: true).count %></td>
         </tr>
       <% end %>
+
     </tbody>
   </table>
 </div>
