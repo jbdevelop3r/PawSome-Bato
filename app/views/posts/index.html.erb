@@ -16,8 +16,8 @@
                 <div class="card-index">
                     <p class="card-title d-flex justify-content-center text-success"> <%= post.advertisement %>: <%= post.pet_name.titleize  %></p>
                     <p class="card-text"><i class="fa-solid fa-paw"></i> <%= post.category.titleize %>, <%= post.breed.titleize %></p>
-                    <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= post.location %></p>
                     <p class="card-text"><i class="fa-solid fa-user"></i> <%= post.owner %></p>
+                    <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= post.location %></p> 
             </div>
                 <%= link_to "Details", post_path(post), class: "btn btn-secondary btn-sm" %>
             </div>

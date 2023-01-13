@@ -1,4 +1,6 @@
-<div class="card p-3 mb-5 mt-3" style="width: 60rem;">
+
+
+<div class="card p-3 mb-5 mt-4" style="width: 50rem;">
   <%= form_with(model: @post, url: posts_path) do |form| %>
 
   <div class="row">
@@ -34,23 +36,22 @@
       </div>
     </div>
 
-    <div class="d-flex gap-2 mb-3">
+    <div class="row">
+    <div class="d-flex gap-2 mb-3 col">
       <%= form.radio_button :advertisement, 'For Adoption' %>
       <%= form.label :advertisement, 'For Adoption'%>
       <%= form.radio_button :advertisement, 'For Sale' %>
       <%= form.label :advertisement, 'For Sale'%>
     </div>
 
-    <div class="row">
-        <div class="d-flex gap-2 mb-3">
+
+        <div class="d-flex gap-2 mb-3 col">
           <%= form.radio_button :pick_up, 'meet_up' %>
           <%= form.label :pick_up, 'Meet up'%>
-        <div class="d-flex gap-2 mb-3">
           <%= form.radio_button :pick_up, 'pick_up' %>
           <%= form.label :pick_up, 'Pick up'%>
         </div>
-    </div>
-    </div>
+  </div>
 
     <div class="mb-3 col">
       <%= form.label "Picture of your pet", class: "form-label" %>
