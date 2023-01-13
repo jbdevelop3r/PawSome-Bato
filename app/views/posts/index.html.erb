@@ -1,21 +1,22 @@
 <%= link_to 'Post a pet', new_post_path %>
 <%= link_to "Search a location", places_path %>
 
-<h1>Pets for adoption</h1>
+<h1>Featured Pets</h1>
 
 <div class="container">
     <% @posts.each do |post| %>
-        <div class="post">
-            <%= link_to post do %>
-                <div class="ctr-thumb">
-                    <%= image_tag post.thumbnail_url, class: "thumb" %>
-                </div>
-                <h3><%= post.pet_name %></h3>
-                <h4><%= post.category %>, <%= post.breed %></h4>
-                <p><%= number_to_currency(post.price) %></p>
-                <p><%= post.description %></p>
-                <p><%= post.location %>, <%= post.pick_up ? 'Meet up' : 'Pick up' %></p>
-            <% end %>
+        <div class="card" style="width: 15rem;">
+            <div  class="card-img-top" >
+                <%= image_tag post.thumbnail_url, class: "pet-thumbnail"%>
+            </div>
+            <div class="card-body">
+                <div class="card-index">
+                    <h3 class="card-title"><%= post.pet_name.titleize  %></h3>
+                    <p class="card-text"><%= post.category.titleize %>, <%= post.breed.titleize %></p>
+                    <p class="card-text"><%= post.location %></p>
+            </div>
+                <%= link_to "Details", post_path(post), class: "btn btn-secondary btn-sm" %>
+            </div>
         </div>
     <% end %>
 </div>

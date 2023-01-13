@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all.where(availability: "available").order('created_at DESC')
+    @posts = Post.where(availability: "available").order('created_at DESC')
   end
 
   def show
@@ -46,9 +46,11 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    def post_params
-      params.require(:post).permit(:pet_name, :category, :breed, :price, :description, :is_meet_up, :location, :thumbnail, :availability)
-    end
+
+  def post_params
+    params.require(:post).permit(:pet_name, :category, :breed, :price, :description, :pick_up, :location, :thumbnail, :availability, :advertisement)
+  end
+
   
     def check_if_admin
       if current_user.admin?

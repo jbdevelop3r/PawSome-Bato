@@ -1,18 +1,56 @@
-<%= form_with(model: @post, url: posts_path) do |form| %>
-  <%= form.file_field :thumbnail %><br>
-  <%= form.label :pet_name %><br>
-  <%= form.text_field :pet_name %><br>
-  <%= form.label :category %><br>
-  <%= form.text_field :category %><br>
-  <%= form.label :breed %><br>
-  <%= form.text_field :breed %><br>
-  <%= form.label :price %><br>
-  <%= form.number_field :price, step: :any %><br>
-  <%= form.label :description %><br>
-  <%= form.text_area :description %><br>
-  <%= form.check_box :is_meet_up %>
-  <%= form.label :is_meet_up, 'Meet up' %><br>
-  <%= form.label :location %><br>
-  <%= form.text_field :location %><br>
-  <%= form.submit 'Post pet' %>
-<% end %>
+<div class="card p-3" style="width: 30rem;">
+  <%= form_with(model: @post, url: posts_path) do |form| %>
+    <div class="d-flex gap-2 mb-3">
+      <%= form.radio_button :advertisement, 'For Adoption' %>
+      <%= form.label :advertisement, 'For Adoption'%>
+      <%= form.radio_button :advertisement, 'For Sale' %>
+      <%= form.label :advertisement, 'For Sale'%>
+    </div>
+    <div class="mb-3">
+      <%= form.label :pet_name, class: "form-label" %>
+      <%= form.text_field :pet_name, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+    <%= form.label :category, class: "form-label" %>
+    <%= form.text_field :category, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :breed, class: "form-label" %>
+      <%= form.text_field :breed, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :price, class: "form-label" %>
+      <%= form.number_field :price, step: :any, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :location, class: "form-label" %>
+      <%= form.text_field :location, class: "form-control", id: "searchTextField" %>
+    </div>
+    <div class="d-flex gap-2 mb-3">
+      <%= form.radio_button :pick_up, 'meet_up' %>
+      <%= form.label :pick_up, 'Meet up'%>
+      <%= form.radio_button :pick_up, 'pick_up' %>
+      <%= form.label :pick_up, 'Pick up'%>
+    </div>
+    <div class="mb-3">
+      <%= form.label "Picture of your pet", class: "form-label" %>
+      <%= form.file_field :thumbnail, class:"form-control"%>
+    </div>
+    <%= form.submit 'Post pet', class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<%# initialize and load google map autocomplete feature %>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script>
+  function initialize() {
+    var input = document.getElementById('searchTextField');
+    new google.maps.places.Autocomplete(input);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
