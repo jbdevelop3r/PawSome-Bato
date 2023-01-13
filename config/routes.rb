@@ -14,10 +14,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users do
-      resources :posts, only: [ :index ]
+      resources :posts, only: [ :index, :show, :destroy ]
     end
-    resources :posts, only: [ :show ]
-      # post :report, on: :member
+    # resources :posts, only: [ :show ]
   end
   
   resources :places
@@ -28,7 +27,6 @@ Rails.application.routes.draw do
     patch :report, on: :member
   end
 
-  # resources :posts
   resources :users, only: [:index, :show, :update] do
     resources :reviews
   end

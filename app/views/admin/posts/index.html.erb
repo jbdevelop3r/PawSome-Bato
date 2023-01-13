@@ -1,16 +1,46 @@
-<div class="container">
-    <% @posts.each do |post| %>
-        <div class="post">
+<div class="container" style="gap: 1.5rem;">
+    <div class="post-category-wrapper">
+        <span>Reported</span>
+        <div class="post-category">
             <% @posts.each do |post| %>
-                <div class="ctr-thumb">
-                    <%= image_tag post.thumbnail_url, class: "thumb" %>
-                </div>
-                <h3><%= post.pet_name %></h3>
-                <h4><%= post.category %>, <%= post.breed %></h4>
-                <p><%= number_to_currency(post.price) %></p>
-                <p><%= post.description %></p>
-                <p><%= post.location %>, <%= post.pick_up ? 'Meet up' : 'Pick up' %></p>
+                <% if post.reported == true %> 
+                    <div class="card" style="width: 15rem;">
+                        <div  class="card-img-top" >
+                            <%= image_tag post.thumbnail_url, class: "pet-thumbnail"%>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-index">
+                                <p class="card-title d-flex justify-content-center text-success"> <%= post.advertisement %>: <%= post.pet_name.titleize  %></p>
+                                <p class="card-text"><i class="fa-solid fa-paw"></i> <%= post.category.titleize %>, <%= post.breed.titleize %></p>
+                                <p class="card-text"><i class="fa-solid fa-user"></i> <%= post.owner %></p>
+                                <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= post.location %></p> 
+                            </div>
+                            <%= link_to "Details", admin_user_post_path(@user, post), class: "btn btn-secondary btn-sm" %>
+                        </div>
+                    </div>
+                <% end %>
             <% end %>
         </div>
-    <% end %>
+        <span>Safe</span>
+        <div class="post-category">
+            <% @posts.each do |post| %>
+                <% if post.reported != true %> 
+                    <div class="card" style="width: 15rem;">
+                        <div  class="card-img-top" >
+                            <%= image_tag post.thumbnail_url, class: "pet-thumbnail"%>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-index">
+                                <p class="card-title d-flex justify-content-center text-success"> <%= post.advertisement %>: <%= post.pet_name.titleize  %></p>
+                                <p class="card-text"><i class="fa-solid fa-paw"></i> <%= post.category.titleize %>, <%= post.breed.titleize %></p>
+                                <p class="card-text"><i class="fa-solid fa-user"></i> <%= post.owner %></p>
+                                <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= post.location %></p> 
+                            </div>
+                            <%= link_to "Details", admin_user_post_path(@user, post), class: "btn btn-secondary btn-sm" %>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
 </div>
