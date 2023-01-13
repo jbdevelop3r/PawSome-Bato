@@ -8,7 +8,7 @@
                 <div>
                     <div class="show-post-edit">
                         <%= link_to edit_post_url, class: "post-edit" do %>
-                            <i class="fa-solid fa-pen-to-square fa-spin"></i>
+                            <i class="fa-solid fa-pen-to-square"></i>
                         <% end %>
                     </div>
                 </div>
@@ -27,9 +27,9 @@
             </div>
         </div> 
 
-        <div class="card post-card" style="width: 30rem;">
+        <div class="card post-card" style="width: 30rem;" id="comment-container">
             <%= render 'comments/form' %>
-            <p class="m-1"><%= @post.comments.count %> Comments</p>
+            <p class="m-1"><%= @post.comments.count %> comments</p>
             <%= render @post.comments %>
         </div>
 </div>
