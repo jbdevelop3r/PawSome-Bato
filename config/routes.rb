@@ -23,9 +23,9 @@ Rails.application.routes.draw do
 
   resources :posts do
   	resources :comments
+    resources :inquiries
   end
 
-  resources :posts
   resources :users, only: [:index, :show, :update] do
     resources :reviews
   end

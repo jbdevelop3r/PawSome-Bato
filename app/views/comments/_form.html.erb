@@ -1,5 +1,5 @@
 <div class="card p-3">
-  <%= form_with(model: [@post, @post.comments.build], local: true) do |form| %>
+  <%= form_with(model: [@post, @post.comments.new], local: true) do |form| %>
     <%= form.hidden_field :name, :value => current_user.email %>
     <div class="mb-3">
       <%= form.label :comment, class: "form-label"%>
