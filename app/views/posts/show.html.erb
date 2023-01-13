@@ -23,6 +23,7 @@
                 <p class="card-text"><strong>Description:</strong> <%= @post.description %></p>
                 <p class="card-text"><strong>Location:</strong> <%= @post.location %></p>
                 <p class="card-text"><strong>Pick up/Meet up:</strong> <%= @post.pick_up == 'meet_up' ? 'Meet up' : 'Pick up' %></p>
+                <%= render 'inquiries/form' %>
             </div>
         </div> 
 
