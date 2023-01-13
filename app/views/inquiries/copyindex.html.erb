@@ -1,0 +1,22 @@
+<p>Inquiries for <%= @post.pet_name %></p>
+
+<div id="inquiry-details">
+    <div id="inquiry-content">
+<% @inquiries.each do |inquiry| %>
+    <p>Inquirer email: <%= inquiry.inquirer_name %></p>
+    <% if @post.availability != 'available' %>
+        <%= form_with(model: @post, method: :patch) do |form|%>
+            <%= form.hidden_field :availability, value: "available" %>
+            <%= form.submit "Available" %>
+        <% end %>
+    <% else %>
+        <%= form_with(model: @post, method: :patch) do |form|%>
+            <%= form.hidden_field :availability, value: "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
+            <%= form.hidden_field :update, value: "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
+            <%= form.submit "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
+        <% end %>
+    <% end %>
+<% end %>
+<%= console %>
+</div>
+</div>
