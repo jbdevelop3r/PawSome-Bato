@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root to: 'posts#index', as: :authenticated_root
+      resources :places
     end
   
     unauthenticated :user do
@@ -16,8 +17,13 @@ Rails.application.routes.draw do
   end
   
   resources :places
+
+  resources :posts do
+  	resources :comments
+  end
+
   resources :posts
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index, :show, :update] do
     resources :reviews
   end
 end

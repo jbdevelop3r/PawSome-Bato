@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "font-awesome-sass", "~> 6.2.1"
+
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
@@ -59,10 +61,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
-
 # Shawn added for testing email delivery
 gem 'letter_opener', group: :development 
 gem 'mail_interceptor', group: [ :development, :staging ]
 
 gem 'carrierwave'
+
 

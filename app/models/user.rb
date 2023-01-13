@@ -10,7 +10,9 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
+  mount_uploader :avatar, AvatarUploader
+
   def send_welcome_email
-    UserMailer.welcome.deliver_now
+    UserMailer.welcome(self).deliver_now
   end
 end
