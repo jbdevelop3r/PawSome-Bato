@@ -17,15 +17,17 @@ Rails.application.routes.draw do
       resources :posts, only: [ :index ]
     end
     resources :posts, only: [ :show ]
+      # post :report, on: :member
   end
   
   resources :places
 
   resources :posts do
   	resources :comments
+    post :report, on: :member
   end
 
-  resources :posts
+  # resources :posts
   resources :users, only: [:index, :show, :update] do
     resources :reviews
   end
