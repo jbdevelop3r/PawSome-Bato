@@ -20,19 +20,24 @@
           </ul>
       </ul>
       <% if user_signed_in? %>
-      <div style="display: flex; gap: 1.5rem;">
-        <%= link_to places_path, class: "nav-item" do %>
+        <div style="display: flex; gap: 1.5rem;">
+          <%= link_to places_path, class: "nav-item" do %>
           <i class="fa-solid fa-location-dot"></i>
         <% end %>
 
-        <%= link_to posts_path, class:"nav-item" do %>
+        <%= link_to posts_path, class:"nav-item", id: "home-btn" do %>
           <i class="fa-solid fa-house-user"></i>
         <% end %>
 
-        <%= link_to destroy_user_session_path, method: :delete, class: "nav-item " do%>
-          <i class="fa-solid fa-right-from-bracket"></i>
+        <%= link_to :back, class: "nav-item" do %>
+          <i class="fa-solid fa-backward"></i>
         <% end %> 
-        <% end %>
+        
+        <%= link_to destroy_user_session_path, method: :delete, class: "nav-item " do%>
+          <i class="fa-solid fa-xmark"></i>
+        <% end %> 
+
+      <% end %>
       </div>
     </div>
   </div>
