@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   # Report post
   def report
     @post.update(reported: true)
-    redirect_to :show
+    redirect_to post_path(@post), notice: 'Post reported'
   end
 
   private

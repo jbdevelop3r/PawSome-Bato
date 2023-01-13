@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :posts do
   	resources :comments
-    post :report, on: :member
+    patch :report, on: :member
   end
 
   # resources :posts
