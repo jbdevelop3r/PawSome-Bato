@@ -22,7 +22,13 @@
              asdf
           </ul>
       </ul>
+      <div style="display: flex; gap: 1rem;">
+        <%= link_to posts_path, class:"nav-item" do %>
+          <i class="fa-solid fa-house-user"></i>
+        <% end %>
+
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-item ", id: "logout"%>
+      </div>
     </div>
   </div>
 </nav>
