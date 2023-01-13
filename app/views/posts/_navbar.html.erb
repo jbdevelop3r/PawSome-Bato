@@ -1,7 +1,6 @@
-<% if user_signed_in? %>
-<nav class="navbar navbar-expand-lg " style="background-color: #282A3A;">
+<nav class="navbar navbar-expand-lg " style="background-color: #86C8BC;">
   <div class="container-fluid me-3">
-    <a href='/' class="navbar-brand text-light"><i class="fa-solid fa-paw"></i></a>
+    <a href='/' class="navbar-brand text-light"><i class="fa-solid fa-paw" style="transform: scale(1.5); margin-left:15px;"></i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,6 +19,7 @@
             </li>  %>
           </ul>
       </ul>
+      <% if user_signed_in? %>
       <div style="display: flex; gap: 1.5rem;">
         <%= link_to places_path, class: "nav-item" do %>
           <i class="fa-solid fa-location-dot"></i>
@@ -31,9 +31,9 @@
 
         <%= link_to destroy_user_session_path, method: :delete, class: "nav-item " do%>
           <i class="fa-solid fa-right-from-bracket"></i>
+        <% end %> 
         <% end %>
       </div>
     </div>
   </div>
 </nav>
-<% end %>
