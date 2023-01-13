@@ -5,9 +5,13 @@
                     <%= image_tag @post.thumbnail_url, class: "pet-thumbnail"%>
             </div>
             <% if current_user.id == @post.user_id %>
-                <%= link_to edit_post_url do %>
-                    <i class="fa-solid fa-pen-to-square"></i>
-                <% end %>
+                <div>
+                    <div class="show-post-edit">
+                        <%= link_to edit_post_url, class: "post-edit" do %>
+                            <i class="fa-solid fa-pen-to-square fa-spin"></i>
+                        <% end %>
+                    </div>
+                </div>
             <% end %>
             <div class="card-body">
                 <div class="d-flex align-items-center gap-2">

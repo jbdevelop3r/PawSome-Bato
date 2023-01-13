@@ -1,5 +1,10 @@
 .nav-item {
-    color: white
+    color: white;
+}
+
+.nav-item:hover {
+    color: white;
+    transform: scale(1.2);
 }
 
 #logout {

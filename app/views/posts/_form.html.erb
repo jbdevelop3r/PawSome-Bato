@@ -2,7 +2,7 @@
   <%= form_with(model: @post, url: posts_path) do |form| %>
       <div class="mb-3">
         <%= form.label :owner, class: "form-label" %>
-        <%= form.text_field :pet_name, class: "form-control" %>
+        <%= form.text_field :owner, class: "form-control" %>
       </div>
       <div class="mb-3">
         <%= form.label :pet_name, class: "form-label" %>
