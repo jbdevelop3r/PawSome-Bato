@@ -63,7 +63,7 @@ gem 'devise'
 
 
 # Shawn added for testing email delivery
-# gem 'letter_opener', group: :development 
+gem 'letter_opener', group: :development 
 # gem 'mail_interceptor', group: [ :development, :staging ]
 gem 'bootstrap-email'
 

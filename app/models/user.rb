@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :transactions
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
+  # def send_welcome_email
+  #   UserMailer.welcome(self).deliver_now
+  # end
 end
