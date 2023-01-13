@@ -7,6 +7,9 @@
             <% if current_user.id == @post.user_id %>
                 <div>
                     <div class="show-post-edit">
+                        <%= link_to post_inquiries_path(@post.id), class: "post-edit" do %>
+                            <i class="fa-regular fa-message"></i>
+                        <% end %>
                         <%= link_to edit_post_url, class: "post-edit" do %>
                             <i class="fa-solid fa-pen-to-square"></i>
                         <% end %>

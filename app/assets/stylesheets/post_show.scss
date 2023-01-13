@@ -1,9 +1,12 @@
 .show-post-edit {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     margin-right: 1rem;
+    margin-left: 1rem;
     color: #282A3A;
+    gap: 1rem;
+    text-align: center;
 }
 
 .post-edit {
