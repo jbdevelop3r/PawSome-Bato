@@ -5,3 +5,33 @@
 .postpet-title {
     color: blue;
 }
+
+.pawsome-title {
+    font-family: 'Pacifico', cursive;
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.post-pet-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-pet {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    text-decoration: none;  
+    margin-left: 10px;
+    margin-right: 20px;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    background-color: #00abb3;
+    padding: 5px 10px;
+    border-radius: 2px; 
+    display: inline-block;
+}
+

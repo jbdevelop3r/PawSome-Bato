@@ -23,6 +23,10 @@
           </ul>
       </ul>
       <div style="display: flex; gap: 1rem;">
+        <%= link_to places_path, class: "nav-item" do %>
+          <i class="fa-solid fa-location-dot"></i>
+        <% end %>
+
         <%= link_to posts_path, class:"nav-item" do %>
           <i class="fa-solid fa-house-user"></i>
         <% end %>
