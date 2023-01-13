@@ -1,0 +1,20 @@
+<div class="card p-3">
+  <%= form_with(model: [@post, @post.inquiries.new], local: true) do |form| %>
+    <%= form.hidden_field :inquirer_name, :value => current_user.email %>
+
+    <% if current_user.id != @post.user_id %>
+      <% if @post.availability != 'available' %>
+          <%= button_tag "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}", type: 'button', class: "btn btn-secondary", disabled: true %>
+      <% elsif @inquiry == nil %>
+        <%= form.submit 'Inquire', class: "btn btn-primary" %>
+      <% elsif @inquiry.inquirer_name == current_user.email%>
+          <%= button_tag 'Inquired', type: 'button', class: "btn btn-secondary", disabled: true %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+

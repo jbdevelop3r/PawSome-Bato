@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @inquiry = @post.inquiries.find_by(inquirer_name: current_user.email)
   end
 
   def new
