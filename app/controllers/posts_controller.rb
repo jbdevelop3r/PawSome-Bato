@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_if_admin
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :report]
 
   def index
     @posts = Post.where(availability: "available").order('created_at DESC')
@@ -40,6 +40,12 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_url, notice: 'Post deleted.'
+  end
+
+  # Report post
+  def report
+    @post.update(reported: true)
+    redirect_to post_path(@post), notice: 'Post reported'
   end
 
   private
