@@ -25,6 +25,11 @@
           <i class="fa-solid fa-location-dot"></i>
         <% end %>
 
+        <%= link_to user_path(current_user.id), class:"nav-item" do %>
+          <i class="fa-solid fa-user"></i>
+        <% end %>
+ 
+
         <%= link_to posts_path, class:"nav-item", id: "home-btn" do %>
           <i class="fa-solid fa-house-user"></i>
         <% end %>
