@@ -24,11 +24,11 @@
                 <p class="card-text"><strong>Location:</strong> <%= @post.location %></p>
                 <p class="card-text"><strong>Pick up/Meet up:</strong> <%= @post.pick_up == 'meet_up' ? 'Meet up' : 'Pick up' %></p>
             </div>
-        </div>
+        </div> 
 
         <div class="card post-card" style="width: 30rem;">
             <%= render 'comments/form' %>
-            <h5><strong><%= @post.comments.count %></strong> Comments:</h5>
+            <p class="m-1"><%= @post.comments.count %> Comments</p>
             <%= render @post.comments %>
         </div>
 </div>

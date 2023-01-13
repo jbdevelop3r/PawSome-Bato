@@ -1,10 +1,15 @@
-<div class="container d-flex align-items-center">
-  <p>
-    <strong><%= comment.name %>:</strong>
-    <%= comment.comment %>
-  </p>
-  <% if current_user.id == @post.user_id || current_user.email == comment.name %>
-    <%= link_to 'Delete', [comment.post, comment],
-                method: :delete, class: "btn btn-secondary", data: { confirm: 'Are you sure?' } %>
-  <% end %>
+<div class="comment-box ml-1">
+      <p style="margin: 5px">
+      <%= comment.name %>
+      <%= comment.comment %>
+      </p>
+
+      <% if current_user.email == comment.name %>
+      <%= link_to [comment.post, comment],
+                method: :delete, class: "delete-comment", data: { confirm: 'Are you sure?' } do %>
+                <p style="margin: 5px">
+                  <i class="fa-solid fa-trash"></i>
+                </p>
+      <% end %>
+    <% end %>
 </div>
