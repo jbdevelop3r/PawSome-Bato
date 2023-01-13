@@ -1,4 +1,5 @@
-<div class="card p-3 mb-5 mt-3" style="width: 60rem;">
+<div class="d-flex justify-content-center gap-2 mt-5">
+  <div class="card post-card" style="width: 50rem; max-height: 600px;">
   <%= form_with(model: @post, url: post_path(@post), method: :patch) do |form| %>
 
   <div class="row">
@@ -52,6 +53,7 @@
   </div>
     <%= form.submit 'Post pet', class: "btn btn-primary" %>
   <% end %>
+  </div>
 </div>
 
 <script>
