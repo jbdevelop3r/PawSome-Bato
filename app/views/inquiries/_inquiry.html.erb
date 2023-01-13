@@ -1,9 +1,8 @@
-<section class="" >
-    <div class="comment-box ml-1">
+<div class="comment-box ml-1">
       <p style="margin: 5px">
       <%= comment.name %>
       <%= comment.comment %>
-      </p>  
+      </p>
 
       <% if current_user.email == comment.name %>
       <%= link_to [comment.post, comment],
@@ -13,5 +12,4 @@
                 </p>
       <% end %>
     <% end %>
-    </div>
-</section>
+</div>
