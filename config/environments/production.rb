@@ -62,7 +62,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "pawsome_production"
 
-  config.action_mailer.default_url_options = { host: 'mydomain.com'}
+  config.action_mailer.default_url_options = { host: 'pawsome.com'}
 
   config.action_mailer.perform_caching = false
 
