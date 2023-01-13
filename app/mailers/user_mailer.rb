@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   def welcome(user)
     @user = user
-    mail to: user.email
+    bootstrap_mail to: user.email
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

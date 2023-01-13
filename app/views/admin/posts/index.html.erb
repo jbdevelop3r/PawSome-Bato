@@ -1,0 +1,16 @@
+<div class="container">
+    <% @posts.each do |post| %>
+        <div class="post">
+            <%= post do %>
+                <div class="ctr-thumb">
+                    <%= image_tag post.thumbnail_url, class: "thumb" %>
+                </div>
+                <h3><%= post.pet_name %></h3>
+                <h4><%= post.category %>, <%= post.breed %></h4>
+                <p><%= number_to_currency(post.price) %></p>
+                <p><%= post.description %></p>
+                <p><%= post.location %>, <%= post.pick_up ? 'Meet up' : 'Pick up' %></p>
+            <% end %>
+        </div>
+    <% end %>
+</div>
