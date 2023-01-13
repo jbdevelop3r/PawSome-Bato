@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = User.where(admin: false || nil)
   end
 
   # GET /users/1 or /users/1.json
@@ -12,27 +12,25 @@ class Admin::UsersController < ApplicationController
   end
 
   # GET /users/new
-  def new
-    @user = User.new
-  end
+  # def new
+  #   @user = User.new
+  # end
 
   # POST /users or /users.json
-  def create
-    @user = User.new(user_params)
-    # @user.skip_confirmation!
+  # def create
+  #   @user = User.new(user_params)
+  #   # @user.skip_confirmation!
 
 
-    respond_to do |format|
-      if @user.save
-        # AdminConfirmationMailer.signed_up(@user).deliver_now
-        format.html { redirect_to admin_user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @user.save
+  #       # AdminConfirmationMailer.signed_up(@user).deliver_now
+          # redirect_to admin_user_url(@user)
+  #     else
+          # render :new
+  #     end
+  #   end
+  # end
 
   # GET /users/1/edit
   def edit
@@ -42,11 +40,9 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to admin_user_path(@user), notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
+        redirect_to admin_user_path(@user), notice: "Account successfully updated"
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
@@ -54,11 +50,7 @@ class Admin::UsersController < ApplicationController
   # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to admin_users_path, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to admin_users_path
   end
 
 
