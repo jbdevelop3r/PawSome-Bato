@@ -1,7 +1,7 @@
 <div class="container">
     <% @posts.each do |post| %>
         <div class="post">
-            <%= post do %>
+            <% @posts.each do |post| %>
                 <div class="ctr-thumb">
                     <%= image_tag post.thumbnail_url, class: "thumb" %>
                 </div>
