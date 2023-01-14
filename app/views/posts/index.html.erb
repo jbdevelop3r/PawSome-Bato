@@ -1,9 +1,12 @@
-<%= link_to 'Post a pet', new_post_path %>
-<%= link_to "Search a location", places_path %>
+<div class="post-pet-container">
+    <%= link_to new_post_path, class: "post-pet" do %>
+        Post a pet
+    <% end %>
+</div>
 
-<h1>Featured Pets</h1>
+<p class="pawsome-title"> Pawsome </p>
 
-<div class="container">
+<div class="container" style="gap: 1.5rem;">
     <% @posts.each do |post| %>
         <div class="card" style="width: 15rem;">
             <div  class="card-img-top" >
@@ -11,15 +14,15 @@
             </div>
             <div class="card-body">
                 <div class="card-index">
-                    <h3 class="card-title"><%= post.pet_name.titleize  %></h3>
-                    <p class="card-text"><%= post.category.titleize %>, <%= post.breed.titleize %></p>
-                    <p class="card-text"><%= post.location %></p>
+                    <p class="card-title d-flex justify-content-center text-success"> <%= post.advertisement %>: <%= post.pet_name.titleize  %></p>
+                    <p class="card-text"><i class="fa-solid fa-paw"></i> <%= post.category.titleize %>, <%= post.breed.titleize %></p>
+                    <p class="card-text"><i class="fa-solid fa-user"></i> <%= post.owner %></p>
+                    <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= post.location %></p> 
             </div>
                 <%= link_to "Details", post_path(post), class: "btn btn-secondary btn-sm" %>
             </div>
         </div>
     <% end %>
 </div>
-
 
 

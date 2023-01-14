@@ -13,16 +13,19 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users
+    resources :users do
+      resources :posts, only: [ :index ]
+    end
+    resources :posts, only: [ :show ]
   end
   
   resources :places
 
   resources :posts do
   	resources :comments
+    resources :inquiries
   end
 
-  resources :posts
   resources :users, only: [:index, :show, :update] do
     resources :reviews
   end
