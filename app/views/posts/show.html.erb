@@ -15,12 +15,15 @@
                         <% end %>
                     </div>
                 </div>
+            <% else %>
+                <%= link_to report_post_path(@post), method: :patch do %>
+                    <i class="fa-solid fa-triangle-exclamation d-flex justify-content-end me-3 mt-3" style="color: black"></i>
+                <% end %>
             <% end %>
             <div class="card-body">
                 <div class="d-flex align-items-center gap-2">
                     <p style="color: green;"><strong><%= @post.advertisement %></strong></p> <p><%= @post.pet_name.titleize  %></p>
                 </div>
-                <%= button_to "Report", report_post_path(@post), class: "btn btn-danger", method: :patch %>
                 <p class="card-text"><strong>Category:</strong> <%= @post.category.titleize %></p>
                 <p class="card-text"><strong>Breed:</strong> <%= @post.breed.titleize %></p>
                 <p class="card-text"><strong>Owner:</strong> <%= link_to @post.user.email, user_path(@post.user.id)  %></p>
