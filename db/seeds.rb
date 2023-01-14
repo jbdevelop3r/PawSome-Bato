@@ -14,8 +14,8 @@ User.create!(
 )
 
 User.create!(
-    email: 'admin_justine@pawsome.com',
-    password: 'Herald1smurf',
+    email: 'admin@test.com',
+    password: 'abc123',
     # confirmed_at: DateTime.current,
     admin: true
 )
