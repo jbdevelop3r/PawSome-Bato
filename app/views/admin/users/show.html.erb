@@ -1,12 +1,35 @@
-<div class="d-flex dashboard">
-  <h1 class="mb-2">Email: <%= @user.email %><%= link_to "(Edit)", edit_admin_user_path(@user) %></h1>
+<div class='container-xl mb-2'>
+  <div class="row">
+    <div class="col-4  text-center">
+      <div class="card d-flex justify-content-center align-items-center">
+        <%= render 'users/partials/profile' %>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="row mb-3">
+        <div class="card">
+        <%= render 'users/partials/posts' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card">
+          <% if @user.reviews.size > 0 %>
+            <% @user.reviews.each do |review| %>
+                <div class="row border-bottom my-3">
+                  <div class="col-1">
+                    <%= image_tag User.find_by(email: review.reviewer).avatar_url || 'default_profile', class: 'rounded-circle', style: 'width: 50px; height: 50px;' %>        
+                  </div>
+                  <div class="col-11">
+                    <div class="row"><%= review.reviewer %></div>
+                    <div class="row"><%= review.rating %> &#11088; rating</div>
+                    <div class="row my-2"><%= review.comment %></div>
+                  </div>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1><%= link_to "Delete User", admin_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></h1>
 </div>
-<table class="table">
-  <thead class="thead-dark">
-
-  </thead>
-
-  <tbody>
-  
-  </tbody>
-</table>
