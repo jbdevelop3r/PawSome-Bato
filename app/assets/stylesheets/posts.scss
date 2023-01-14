@@ -16,7 +16,8 @@
 
 .post-pet-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .post-pet {
@@ -24,8 +25,7 @@
     justify-content: flex-end;
     font-size: 15px;
     text-decoration: none;  
-    margin-left: 10px;
-    margin-right: 20px;
+    margin-left: 50px;
     align-items: center;
     gap: 10px;
     color: white;
@@ -33,7 +33,20 @@
     padding: 5px 10px;
     border-radius: 2px; 
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 40px;
+}
+
+.index-back {
+    margin-right: 50px;
+    font-size: 30px;
+    align-items: center;
+    color: #393E46; 
+    padding-top: 30px;
+}
+
+.index-back:hover {
+    transform: scale(1.2);
+    color: #393E46; 
 }
 
 .post-pet:hover {
@@ -75,3 +88,6 @@
 .post-delete-btn {
     width: 100%;
 }
+
+#home-btn {
+    margin-right: 2rem;

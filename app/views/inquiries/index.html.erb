@@ -1,5 +1,9 @@
-<p id="pet-inquiry">Inquiries for <%= @post.pet_name %></p>
-
+<p id="pet-inquiry"><%= @post.pet_name %></p>
+<div class="d-flex justify-content-center">
+<div class="card" style="width: 12rem;">
+    <%= image_tag @post.thumbnail_url, class: "pet-thumbnail"%>
+</div>
+</div>
 
 <div class="container my-1 d-flex justify-content-center">
   <div class="row">
@@ -24,8 +28,7 @@
                     <% else %>
                         <%= form_with(model: @post, method: :patch) do |form|%>
                         <%= form.hidden_field :availability, value: "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
-                        <%= form.hidden_field :update, value: "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
-                        <%= form.submit "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
+                        <%= form.submit "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}",  class: "btn btn-secondary" %>
                     <% end %>
                     <% end %> 
                 </td>
@@ -42,5 +45,7 @@
         </table>
     </div>
 </div>
+
+
 
 

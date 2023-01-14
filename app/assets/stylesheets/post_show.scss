@@ -1,4 +1,4 @@
-.show-post-edit {
+.show-post-tools {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,4 +16,17 @@
 .post-edit:hover {
     color: #282A3A;
     transform: scale(1.2);
+} 
+
+#inquiry-count {
+    text-decoration: none;
+}
+
+#inquiry-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    padding-top: 20px;
 }

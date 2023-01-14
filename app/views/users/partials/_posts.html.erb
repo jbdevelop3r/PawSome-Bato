@@ -1,6 +1,6 @@
 <div class="container-fluid p-3">
     <div class="row">
-        <h1>Posts</h1>
+        <h3 class="d-flex justify-content-center align-items-center">Posts</h3>
     </div>
     <div class="row">
         <% if @posts.size > 0 %>
@@ -10,9 +10,10 @@
                     <%= post.pet_name %>
                 </div>
                  <div class="card-body">
-                    <h5 class="card-title"><%= post.category %> / <%= post.breed %> <small class="text-muted">$ <%= post.price %></small></h5>
+                    <h5 class="card-title"><%= post.category.capitalize %> / <%= post.breed.capitalize %> <small class="text-muted">$ <%= post.price %></small></h5>
                     
-                    <p class="card-text"><%= post.description %></p>
+                    <p class="card-text"><%= post.description.capitalize %></p>
+                    <p class="card-text"><%= post.availability.capitalize %></p>
                 </div>
             </div>
         <% end %>

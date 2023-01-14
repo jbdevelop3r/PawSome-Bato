@@ -1,4 +1,4 @@
-<div class="card p-3">
+<div class=" p-1">
   <%= form_with(model: [@post, @post.inquiries.new], local: true) do |form| %>
     <%= form.hidden_field :inquirer_name, :value => current_user.email %>
 
@@ -10,6 +10,8 @@
       <% elsif @inquiry.inquirer_name == current_user.email%>
           <%= button_tag 'Inquired', type: 'button', class: "btn btn-secondary", disabled: true %>
       <% end %>
+    <% else %>
+      <%= link_to 'Inquiries', post_inquiries_path(@post), class: "btn btn-primary" %>
     <% end %>
   <% end %>
 </div>

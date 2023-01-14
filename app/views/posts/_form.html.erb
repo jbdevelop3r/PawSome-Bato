@@ -37,6 +37,17 @@
     </div>
 
     <div class="row">
+      <div class="mb-3 col">
+        <%= form.label :phone_number, class: "form-label" %>
+        <%= form.text_field :phone, class: "form-control", id: "searchTextField" %>
+    </div>
+    <div class="mb-3 col">
+        <%= form.label "Picture of your pet", class: "form-label" %>
+        <%= form.file_field :thumbnail, class:"form-control"%>
+      </div>
+    </div>
+
+    <div class="row">
     <div class="d-flex gap-2 mb-3 col">
       <%= form.radio_button :advertisement, 'For Adoption' %>
       <%= form.label :advertisement, 'For Adoption'%>
@@ -52,11 +63,6 @@
           <%= form.label :pick_up, 'Pick up'%>
         </div>
   </div>
-
-    <div class="mb-3 col">
-      <%= form.label "Picture of your pet", class: "form-label" %>
-      <%= form.file_field :thumbnail, class:"form-control"%>
-    </div>
 
     <div class="mb-3">
       <%= form.label :description, class: "form-label" %>
