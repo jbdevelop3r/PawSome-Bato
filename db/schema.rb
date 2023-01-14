@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2023_01_13_180640) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,8 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_180640) do
 
   create_table "connections", force: :cascade do |t|
     t.bigint "customer_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_connections_on_user_id"
   end
@@ -45,8 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_180640) do
     t.string "name"
     t.decimal "latitude"
     t.decimal "longitude"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -57,16 +55,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_180640) do
     t.text "description"
     t.text "location"
     t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_sold"
     t.string "thumbnail"
     t.string "availability", default: "available"
+    t.boolean "is_sold"
     t.string "pick_up"
     t.string "advertisement"
     t.string "owner"
     t.boolean "reported", default: false
-    t.bigint "phone"
+    t.string "owner"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -74,8 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_180640) do
     t.integer "rating"
     t.text "comment"
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "reviewer"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -86,9 +85,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_180640) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at", precision: nil
     t.datetime "remember_created_at", precision: nil
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "admin", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin"
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

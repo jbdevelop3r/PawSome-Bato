@@ -10,6 +10,8 @@
       <% elsif @inquiry.inquirer_name == current_user.email%>
           <%= button_tag 'Inquired', type: 'button', class: "btn btn-secondary", disabled: true %>
       <% end %>
+    <% else %>
+      <%= link_to 'Inquiries', post_inquiries_path(@post), class: "btn btn-primary" %>
     <% end %>
   <% end %>
 </div>
