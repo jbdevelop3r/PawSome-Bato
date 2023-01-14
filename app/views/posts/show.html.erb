@@ -17,6 +17,12 @@
                         <% end %>
                     </div>
                 </div>
+            <% else %>
+                <div class="show-post-report">
+                    <%= link_to report_post_path(@post), class: "post-edit", method: :patch do %>   
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    <% end %>
+                </div>
             <% end %>
             <div class="card-body">
                 <div class="d-flex align-items-center gap-2">

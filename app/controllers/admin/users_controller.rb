@@ -9,6 +9,7 @@ class Admin::UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @posts = @user.posts
   end
 
   # GET /users/new
@@ -49,6 +50,7 @@ class Admin::UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    @user.posts.destroy_all
     @user.destroy
     redirect_to admin_users_path
   end

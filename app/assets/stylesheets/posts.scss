@@ -59,6 +59,35 @@
     font-style: bold;
 }
 
+.post-category-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.post-category {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.show-post-report {
+    
+}
+
+.show-post-report {
+    display: flex;
+    justify-content: flex-end;
+    color: #282A3A;
+    margin-right: 1rem;
+}
+
+.post-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post-delete-btn {
+    width: 100%;
+}
+
 #home-btn {
     margin-right: 2rem;
-}
