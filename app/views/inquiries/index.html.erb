@@ -28,8 +28,7 @@
                     <% else %>
                         <%= form_with(model: @post, method: :patch) do |form|%>
                         <%= form.hidden_field :availability, value: "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
-                        <%= form.hidden_field :update, value: "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
-                        <%= form.submit "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}" %>
+                        <%= form.submit "#{@post.advertisement == 'For Sale' ? 'Sold' : 'Adopted'}",  class: "btn btn-secondary" %>
                     <% end %>
                     <% end %> 
                 </td>

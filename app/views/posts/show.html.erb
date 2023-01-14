@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center gap-2 mt-4" >
-        <div class="card post-card" style="width: 30rem; max-height: 600px;">
+        <div class="card post-card" style="width: 30rem; max-height: 700px;">
             <div  class="card-img-top mb-2 mt-3" style="background-color: #86C8BC;">
                     <%= image_tag @post.thumbnail_url, class: "pet-thumbnail"%>
             </div> 
@@ -22,7 +22,7 @@
                 <div class="d-flex align-items-center gap-2">
                     <p style="color: green;"><strong><%= @post.advertisement %></strong></p> <p><%= @post.pet_name.titleize  %></p>
                 </div>
-                <%= button_to "Report", report_post_path(@post), class: "btn btn-danger", method: :patch %>
+                <%= button_to "Report", report_post_path(@post), class: "btn btn-danger mb-3", method: :patch %>
                 <p class="card-text"><strong>Category:</strong> <%= @post.category.titleize %></p>
                 <p class="card-text"><strong>Breed:</strong> <%= @post.breed.titleize %></p>
                 <p class="card-text"><strong>Owner:</strong> <%= link_to @post.user.email, user_path(@post.user.id)  %></p>
