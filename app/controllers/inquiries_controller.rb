@@ -20,6 +20,6 @@ class InquiriesController < ApplicationController
 	end
 
   def verify_user
-    redirect_to authenticated_root_path, notice: "You do not have access to that Post" unless Post.find(params[:post_id]).user_id == current_user.id
+    redirect_to authenticated_root_path, notice: "You do not have access to that post" unless Post.find(params[:post_id]).user_id == current_user.id
   end
 end

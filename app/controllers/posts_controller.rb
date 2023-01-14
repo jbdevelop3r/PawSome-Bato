@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_if_admin
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :report]
 
   def index
     @posts = Post.where(availability: "available").order('created_at DESC')
@@ -42,6 +42,12 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: 'Post deleted.'
   end
 
+  # Report post
+  def report
+    @post.update(reported: true)
+    redirect_to post_path(@post), notice: 'Post reported'
+  end
+
   private
     def set_post
       @post = Post.find(params[:id])
@@ -49,7 +55,7 @@ class PostsController < ApplicationController
 
 
   def post_params
-    params.require(:post).permit(:owner, :pet_name, :category, :breed, :price, :description, :pick_up, :location, :thumbnail, :availability, :advertisement)
+    params.require(:post).permit(:phone, :owner, :pet_name, :category, :breed, :price, :description, :pick_up, :location, :thumbnail, :availability, :advertisement)
   end
 
   
