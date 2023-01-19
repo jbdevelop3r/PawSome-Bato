@@ -15,11 +15,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.build
   end
 
-  def create
+  def create 
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to post_url(@post), notice: 'Post created.'
+      redirect_to post_url(@post), notice: 'Post create!'
     else
       render :new
     end
