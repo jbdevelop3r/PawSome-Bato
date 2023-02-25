@@ -9,7 +9,7 @@
             </li>
         <% elsif current_user && !current_user.admin %>
             <li class="nav-item">
-                <span class="greet-user">Welcome, User <%= current_user.email.split("@").first.capitalize %></span>
+                <span class="greet-user">Welcome, user <%= current_user.email.split("@").first.capitalize %></span>
             </li>
         <% end %>
         <% if user_signed_in? %>
